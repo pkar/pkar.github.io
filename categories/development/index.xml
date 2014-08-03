@@ -18,7 +18,7 @@
       <description>&lt;p&gt;For whatever reason I thought it&amp;rsquo;d be great to have a go binary update itself. My usual
 method is to just use a &lt;a href=&#34;https://github.com/pkar/go-fabric&#34;&gt;fabric file&lt;/a&gt;. But that
 got boring so I made a refurbishing package instead. &lt;a href=&#34;https://github.com/pkar/refurbish&#34;&gt;refurbish&lt;/a&gt;
-&lt;pre class=&#34;code&#34;&gt;
+&lt;pre&gt;&lt;code class=&#34;go&#34;&gt;
 package main&lt;/p&gt;
 
 &lt;p&gt;import &amp;ldquo;github.com/pkar/refurbish&amp;rdquo;&lt;/p&gt;
@@ -34,7 +34,7 @@ package main&lt;/p&gt;
     )
     go r.run()
 }
-&lt;/pre&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
 
 &lt;p&gt;Usage is pretty simple, features are for now as basic as it gets. Basically it just pings a url to check if
 the binary has changed, and if so it replaces itself and reloads. Work in progress&amp;hellip;&lt;/p&gt;

@@ -21,6 +21,9 @@
 
   
   <link href="https://pkar.github.io/index.xml" rel="alternate" type="application/rss+xml" title="Paul Karadimas" />
+
+	<link rel="stylesheet" href="/js/highlight/styles/ir_black.css">
+	<script src="/js/highlight/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -64,7 +67,7 @@
     <p>For whatever reason I thought it&rsquo;d be great to have a go binary update itself. My usual
 method is to just use a <a href="https://github.com/pkar/go-fabric">fabric file</a>. But that
 got boring so I made a refurbishing package instead. <a href="https://github.com/pkar/refurbish">refurbish</a>
-<pre class="code">
+<pre><code class="go">
 package main</p>
 
 <p>import &ldquo;github.com/pkar/refurbish&rdquo;</p>
@@ -80,7 +83,7 @@ package main</p>
     )
     go r.run()
 }
-</pre></p>
+</code></pre></p>
 
 <p>Usage is pretty simple, features are for now as basic as it gets. Basically it just pings a url to check if
 the binary has changed, and if so it replaces itself and reloads. Work in progress&hellip;</p>
@@ -98,7 +101,7 @@ the binary has changed, and if so it replaces itself and reloads. Work in progre
 
     <p>I needed something simple to try out the formatting of this page.</p>
 
-<pre class="code">
+<pre><code class="go">
 package main
 
 import "stack"
@@ -116,19 +119,19 @@ func main() {
     fmt.Println(x)
     // Output: x
 }
-</pre>
+</code></pre>
 
 <p>A human might create their directory and file layout as such
-<pre class="bash">
+<pre><code class="bash">
 $ mkdir -p src/stack
 $ touch main.go # put the contents of main above
 $ # copy the stack src from below to src/stack/stack.go
 $ export GOPATH=$(pwd)
 $ go run main.go
-</pre></p>
+</code></pre></p>
 
 <p>Here&rsquo;s the implementation of it.
-<pre class="code">
+<pre><code class="go">
 // Package stack implements a basic stack data structure.
 package stack</p>
 
@@ -175,7 +178,7 @@ func (s *Stack) Pop() interface{} {
 func New() *Stack {
     return &amp;Stack{}
 }
-</pre></p>
+</code></pre></p>
 
   </div>
   
@@ -431,6 +434,7 @@ $ZZ$$$$$I7$OO88888888OO7====~~~~++~====~~~~~::::~:~:~~:::~~~~=++==+++==++=?77777
   
 </div>
 
+	<script>hljs.initHighlightingOnLoad();</script>
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -453,6 +457,5 @@ $ZZ$$$$$I7$OO88888888OO7====~~~~++~====~~~~~::::~:~:~~:::~~~~=++==+++==++=?77777
 		(adsbygoogle = window.adsbygoogle || []).push({});
 		</script>
 	<div>
-
   </body>
 </html>

@@ -21,6 +21,9 @@
 
   
   <link href="" rel="alternate" type="application/rss+xml" title="Paul Karadimas" />
+
+	<link rel="stylesheet" href="/js/highlight/styles/ir_black.css">
+	<script src="/js/highlight/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -54,7 +57,7 @@
   <span class="post-date">Sat, Aug 2, 2014</span>
       <p>I needed something simple to try out the formatting of this page.</p>
 
-<pre class="code">
+<pre><code class="go">
 package main
 
 import "stack"
@@ -72,19 +75,19 @@ func main() {
     fmt.Println(x)
     // Output: x
 }
-</pre>
+</code></pre>
 
 <p>A human might create their directory and file layout as such
-<pre class="bash">
+<pre><code class="bash">
 $ mkdir -p src/stack
 $ touch main.go # put the contents of main above
 $ # copy the stack src from below to src/stack/stack.go
 $ export GOPATH=$(pwd)
 $ go run main.go
-</pre></p>
+</code></pre></p>
 
 <p>Here&rsquo;s the implementation of it.
-<pre class="code">
+<pre><code class="go">
 // Package stack implements a basic stack data structure.
 package stack</p>
 
@@ -131,10 +134,11 @@ func (s *Stack) Pop() interface{} {
 func New() *Stack {
     return &amp;Stack{}
 }
-</pre></p>
+</code></pre></p>
 
 </div>
 </div>
 
+	<script>hljs.initHighlightingOnLoad();</script>
   </body>
 </html>

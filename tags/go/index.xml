@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+      <title>Go on Paul Karadimas </title>
+      <generator uri="https://hugo.spf13.com">Hugo</generator>
+    <link>https://pkar.github.io/tags/go/index.xml</link>
+    <language>en-us</language>
+    
+    
+    <updated>Sun, 03 Aug 2014 00:44:38 UTC</updated>
+    
+    <item>
+      <title>self updating go package</title>
+      <link>https://pkar.github.io/post/refurbished</link>
+      <pubDate>Sun, 03 Aug 2014 00:44:38 UTC</pubDate>
+      
+      <guid>https://pkar.github.io/post/refurbished</guid>
+      <description>&lt;p&gt;For whatever reason I thought it&amp;rsquo;d be great to have a go binary update itself. My usual
+method is to just use a &lt;a href=&#34;https://github.com/pkar/go-fabric&#34;&gt;fabric file&lt;/a&gt;. But that
+got boring so I made a refurbishing package instead. &lt;a href=&#34;https://github.com/pkar/refurbish&#34;&gt;refurbish&lt;/a&gt;
+&lt;pre class=&#34;code&#34;&gt;
+package main&lt;/p&gt;
+
+&lt;p&gt;import &amp;ldquo;github.com/pkar/refurbish&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;func main() {
+    // Path to latest binary,
+    // path to latest md5 file,
+    // restart commands semicolon separated
+    r := refurbish.New(
+        &amp;ldquo;&lt;a href=&#34;http://example.com/path/to/binary&amp;quot;&#34;&gt;http://example.com/path/to/binary&amp;quot;&lt;/a&gt;,
+        &amp;ldquo;&lt;a href=&#34;http://example.com/path/to/md5&amp;quot;&#34;&gt;http://example.com/path/to/md5&amp;quot;&lt;/a&gt;,
+        &amp;ldquo;sudo initctl restart binary&amp;rdquo;,
+    )
+    go r.run()
+}
+&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p&gt;Usage is pretty simple, features are for now as basic as it gets. Basically it just pings a url to check if
+the binary has changed, and if so it replaces itself and reloads. Work in progress&amp;hellip;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>stack</title>
+      <link>https://pkar.github.io/post/stack</link>
+      <pubDate>Sat, 02 Aug 2014 00:48:45 UTC</pubDate>
+      
+      <guid>https://pkar.github.io/post/stack</guid>
+      <description>&lt;p&gt;I needed something simple to try out the formatting of this page.&lt;/p&gt;
+
+&lt;pre class=&#34;code&#34;&gt;
+package main
+
+import &#34;stack&#34;
+
+func main() {
+    s := stack.New()
+    s.Push(1)
+    s.Push(2)
+    s.Push(&#34;x&#34;)
+
+    fmt.Println(s.Len())
+    // Output: 3
+
+    x := s.Pop()
+    fmt.Println(x)
+    // Output: x
+}
+&lt;/pre&gt;
+
+&lt;p&gt;A human might create their directory and file layout as such
+&lt;pre class=&#34;bash&#34;&gt;
+$ mkdir -p src/stack
+$ touch main.go # put the contents of main above
+$ # copy the stack src from below to src/stack/stack.go
+$ export GOPATH=$(pwd)
+$ go run main.go
+&lt;/pre&gt;&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the implementation of it.
+&lt;pre class=&#34;code&#34;&gt;
+// Package stack implements a basic stack data structure.
+package stack&lt;/p&gt;
+
+&lt;p&gt;// Stack holds a reference to the top of the stack
+// and the current size.
+type Stack struct {
+    top  *Item
+    size int
+}&lt;/p&gt;
+
+&lt;p&gt;// Item holds the value for the item and
+// the next Item.
+type Item struct {
+    value interface{}
+    next  *Item
+}&lt;/p&gt;
+
+&lt;p&gt;// Len returns the stacks length.
+func (s *Stack) Len() int {
+    return s.size
+}&lt;/p&gt;
+
+&lt;p&gt;// Push adds a new element onto the stack and
+// sets top to the pushed item.
+func (s *Stack) Push(value interface{}) {
+    s.top = &amp;amp;Item{value: value, next: s.top}
+    s.size++
+}&lt;/p&gt;
+
+&lt;p&gt;// Pop removes the top element from the stack and returns the value
+// along with setting top to the next element.
+// If the stack is empty, return nil
+func (s *Stack) Pop() interface{} {
+    if s.size &amp;gt; 0 {
+        value := s.top.value
+        s.top = s.top.next
+        s.size&amp;ndash;
+        return value
+    }
+    return nil
+}&lt;/p&gt;
+
+&lt;p&gt;// New is a helper for an initial stack.
+func New() *Stack {
+    return &amp;amp;Stack{}
+}
+&lt;/pre&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

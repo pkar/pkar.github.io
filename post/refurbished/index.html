@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>self updating go package</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Refurbished is a self updating package for go">
+  <link href="" rel="alternate" type="application/rss+xml" title="Paul Karadimas" />
+  <link href="https://pkar.github.io/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://pkar.github.io/css/hc.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+  
+    
+    </head>
+    <body>
+<div class="nav-toggle"><i class="fa fa-bars fa-2x"></i> Herring Cove </div>
+      <div id = "wrapper">
+
+
+<div class="navbar navbar-default" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <p class="navbar-brand">Paul Karadimas</p>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+          <li><a href="https://pkar.github.io/post/">Posts</a></li>
+          <li><a href="https://pkar.github.io/about/">About</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+
+       
+       <div id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+          <li class="sidebar-brand"><a href="https://pkar.github.io/"><h1 class="brand">Paul Karadimas</h1></a><h3></h3></li>
+          <hr />
+          <li><a href="https://pkar.github.io/post/">Posts</a></li>
+          <li><a href="https://pkar.github.io/about/">About</a></li>
+          <hr />
+          <div id="social-wrapper">
+           
+           
+           
+           
+         </div>
+       </ul>
+     </div>
+
+
+
+     <div class="container">
+
+
+  <div id="article">
+   <div class="article-title">self updating go package</div>
+   <p class="meta"><small>&nbsp;<i class="fa fa-calendar-o"></i> 2014-08-03</small></p> <hr/>
+   <div class="post">
+     <p>For whatever reason I thought it&rsquo;d be great to have a go binary update itself. My usual
+method is to just use a <a href="https://github.com/pkar/go-fabric">fabric file</a>. But that
+got boring so I made a refurbishing package instead. <a href="https://github.com/pkar/refurbish">refurbish</a>
+<pre class="code">
+package main</p>
+
+<p>import &ldquo;github.com/pkar/refurbish&rdquo;</p>
+
+<p>func main() {
+    // Path to latest binary,
+    // path to latest md5 file,
+    // restart commands semicolon separated
+    r := refurbish.New(
+        &ldquo;<a href="http://example.com/path/to/binary&quot;">http://example.com/path/to/binary&quot;</a>,
+        &ldquo;<a href="http://example.com/path/to/md5&quot;">http://example.com/path/to/md5&quot;</a>,
+        &ldquo;sudo initctl restart binary&rdquo;,
+    )
+    go r.run()
+}
+</pre></p>
+
+<p>Usage is pretty simple, features are for now as basic as it gets. Basically it just pings a url to check if
+the binary has changed, and if so it replaces itself and reloads. Work in progress&hellip;</p>
+
+   </div>
+ </div>
+
+
+ <a href="https://twitter.com/share" class="twitter-share-button " data-size="small" data-count="none">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+ <ul class="pager">
+     
+      &nbsp;<li class="next"><a href="https://pkar.github.io/post/stack"> stack</a></li>
+</ul>
+
+
+
+    </ul>
+    </div>
+    <footer>
+
+        <p class="text-muted credit">&copy; . All rights reserved. </p>
+    </footer>
+ 
+    <script src="/js/jquery-1.10.2.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/hc.js"></script>
+</body>
+
+</html>
+

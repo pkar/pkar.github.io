@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> Posts &middot; Paul Karadimas </title>
+  <title> docker vagrant setup on Mac OS X &middot; Paul Karadimas </title>
 
   
   <link rel="stylesheet" href="https://pkar.github.io/css/poole.css">
@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
 
   
-  <link href="https://pkar.github.io/post/index.xml" rel="alternate" type="application/rss+xml" title="Paul Karadimas" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Paul Karadimas" />
 
 	<link rel="stylesheet" href="/js/highlight/styles/ir_black.css">
 	<script src="/js/highlight/highlight.pack.js"></script>
@@ -64,16 +64,54 @@
 
 
     <div class="content container">
-  <ul class="posts">
-      
-      <li><span><a href="https://pkar.github.io/post/dockervagrant">docker vagrant setup on Mac OS X</a><time class="pull-right post-list">Wed, Aug 6, 2014</h4></time></span></span></li>
-      
-      <li><span><a href="https://pkar.github.io/post/refurbished">self updating go package</a><time class="pull-right post-list">Sun, Aug 3, 2014</h4></time></span></span></li>
-      
-      <li><span><a href="https://pkar.github.io/post/stack">stack</a><time class="pull-right post-list">Sat, Aug 2, 2014</h4></time></span></span></li>
-      
-  </ul>
-    </div>
+<div class="post">
+  <h1>docker vagrant setup on Mac OS X</h1>
+  <span class="post-date">Wed, Aug 6, 2014</span>
+      <p>Running docker on Mac OS X isn&rsquo;t simple, and I&rsquo;m dumb so I had to find a better way
+of doing things.</p>
+
+<p>The old way I did things was to use packer to build a vagrant box with docker installed.
+<a href="https://github.com/pkar/quasi">quasi</a></p>
+
+<p>The reason for doing this was to be able to mount a host directory. Things have changed
+with boot2docker, so the easier way I found was something like the below.</p>
+
+<pre><code class="bash">
+# install some requirements
+brew tap phinze/cask
+brew install brew-cask
+brew cask install virtualbox
+brew cask install vagrant
+brew tap homebrew/binary
+brew install docker
+brew install boot2docker
+
+# download a boot2docker iso with virtualbox additions.
+wget http://static.dockerfiles.io/boot2docker-v1.1.2-virtualbox-guest-additions-v4.3.12.iso
+mkdir -p ~/.boot2docker
+mv boot2docker-v1.1.2-virtualbox-guest-additions-v4.3.12.iso ~/.boot2docker/
+
+# stop it if running
+boot2docker stop
+
+# virtual box add the shared folder.
+VBoxManage sharedfolder add boot2docker-vm -name home -hostpath /Users
+
+# run boot2docker
+boot2docker up
+
+# test
+boot2docker ssh "ls /Users"
+# you should see the home directory listed here
+
+# now run docker with whatever directory you want mounted.
+docker run -i -t -v /Users/$HOME/project1:/data ubuntu /bin/bash
+</code></pre>
+
+<p><a href="https://medium.com/boot2docker-lightweight-linux-for-docker/boot2docker-together-with-virtualbox-guest-additions-da1e3ab2465c">reference</a></p>
+
+</div>
+</div>
 
 	<script>hljs.initHighlightingOnLoad();</script>
 	<script>
@@ -86,6 +124,7 @@
 		ga('send', 'pageview');
 
 	</script>
+
 
   </body>
 </html>

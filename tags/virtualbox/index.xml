@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Development on Paul Karadimas </title>
+      <title>Virtualbox on Paul Karadimas </title>
       <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>https://pkar.github.io/categories/development/index.xml</link>
+    <link>https://pkar.github.io/tags/virtualbox/index.xml</link>
     <language>en-us</language>
     
     
@@ -57,38 +57,6 @@ docker run -i -t -v /Users/$HOME/project1:/data ubuntu /bin/bash
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://medium.com/boot2docker-lightweight-linux-for-docker/boot2docker-together-with-virtualbox-guest-additions-da1e3ab2465c&#34;&gt;reference&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>self updating go package</title>
-      <link>https://pkar.github.io/post/refurbished</link>
-      <pubDate>Sun, 03 Aug 2014 00:44:38 UTC</pubDate>
-      
-      <guid>https://pkar.github.io/post/refurbished</guid>
-      <description>&lt;p&gt;For whatever reason I thought it&amp;rsquo;d be great to have a go binary update itself. My usual
-method is to just use a &lt;a href=&#34;https://github.com/pkar/go-fabric&#34;&gt;fabric file&lt;/a&gt;. But that
-got boring so I made a refurbishing package instead. &lt;a href=&#34;https://github.com/pkar/refurbish&#34;&gt;refurbish&lt;/a&gt;
-&lt;pre&gt;&lt;code class=&#34;go&#34;&gt;
-package main&lt;/p&gt;
-
-&lt;p&gt;import &amp;ldquo;github.com/pkar/refurbish&amp;rdquo;&lt;/p&gt;
-
-&lt;p&gt;func main() {
-    // Path to latest binary,
-    // path to latest md5 file,
-    // restart commands semicolon separated
-    r := refurbish.New(
-        &amp;ldquo;&lt;a href=&#34;http://example.com/path/to/binary&amp;quot;&#34;&gt;http://example.com/path/to/binary&amp;quot;&lt;/a&gt;,
-        &amp;ldquo;&lt;a href=&#34;http://example.com/path/to/md5&amp;quot;&#34;&gt;http://example.com/path/to/md5&amp;quot;&lt;/a&gt;,
-        &amp;ldquo;sudo initctl restart binary&amp;rdquo;,
-    )
-    go r.run()
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
-
-&lt;p&gt;Usage is pretty simple, features are for now as basic as it gets. Basically it just pings a url to check if
-the binary has changed, and if so it replaces itself and reloads. Work in progress&amp;hellip;&lt;/p&gt;
 </description>
     </item>
     

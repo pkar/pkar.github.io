@@ -25,16 +25,18 @@ of doing things.&lt;/p&gt;
 with boot2docker, so the easier way I found was something like the below.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
-# install some requirements
+# install some requirements, might need boot2docker HEAD if there are issues
 # homebrew
 ruby -e &#34;$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)&#34;
 brew tap phinze/cask
 brew install brew-cask
 brew cask install virtualbox
 brew cask install vagrant
+
 brew tap homebrew/binary
 brew install docker
-brew install boot2docker
+brew install --HEAD boot2docker
+boot2docker delete
 boot2docker init
 boot2docker stop
 

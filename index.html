@@ -86,16 +86,18 @@ of doing things.</p>
 with boot2docker, so the easier way I found was something like the below.</p>
 
 <pre><code class="bash">
-# install some requirements
+# install some requirements, might need boot2docker HEAD if there are issues
 # homebrew
 ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 brew tap phinze/cask
 brew install brew-cask
 brew cask install virtualbox
 brew cask install vagrant
+
 brew tap homebrew/binary
 brew install docker
-brew install boot2docker
+brew install --HEAD boot2docker
+boot2docker delete
 boot2docker init
 boot2docker stop
 

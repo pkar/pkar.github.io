@@ -231,23 +231,22 @@ func New() *Stack {
 
 &lt;p&gt;I like computers in general.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Things I&amp;rsquo;m Working With Right Now&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;- Push notifications service(Go, Ruby, Redis)
-- Creation of a cross promotion recommendation service(Go, MongoDB)
-- Creation of a social and interest graph service(Go)
-- Architecting, coding and deploying a game platform for automated deployment of game clusters(Go, Python, Docker containers, Postgres) (sadly put on hold)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2 id=&#34;toc_2&#34;&gt;Things I&amp;rsquo;ve worked with in the past&lt;/h2&gt;
+&lt;h2 id=&#34;toc_1&#34;&gt;Things I&amp;rsquo;ve worked with in the past&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;Software/Server Architecture&lt;/code&gt; go, python, mysql, mongodb, redis, postgres, javascript, c/c++, objective-c, php, design and implementation of large scale systems, etc&amp;hellip;&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_3&#34;&gt;Work&lt;/h2&gt;
+&lt;h2 id=&#34;toc_2&#34;&gt;Work&lt;/h2&gt;
 
-&lt;h3 id=&#34;toc_4&#34;&gt;DeNA(formerly Ngmoco)&lt;/h3&gt;
+&lt;h3 id=&#34;toc_3&#34;&gt;Upsight&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_5&#34;&gt;Software Server Engineer &lt;strong&gt;December 2012 - Present&lt;/strong&gt; &lt;em&gt;San Francisco, Ca, USA&lt;/em&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;toc_4&#34;&gt;Software Server Engineer &lt;strong&gt;August 2014 - Present&lt;/strong&gt; &lt;em&gt;Portland, Or, USA&lt;/em&gt;&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;- ...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;toc_5&#34;&gt;DeNA(formerly Ngmoco)&lt;/h3&gt;
+
+&lt;h4 id=&#34;toc_6&#34;&gt;Software Server Engineer &lt;strong&gt;December 2012 - August 2014&lt;/strong&gt; &lt;em&gt;San Francisco, Ca, USA&lt;/em&gt;&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;- Rewrite of a push notification system in Go, Redis, MySQL
 - Creation of a cross promotion recommendation service in Go with MongoDB
@@ -258,9 +257,9 @@ func New() *Stack {
 - Maintenance on various Ruby and Go services like UA, push notifications, a/b testing, analytics proxy, using Redis, MongoDB, MySQL, Cassandra, RabbitMQ
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_6&#34;&gt;Idea2 Ltd.&lt;/h3&gt;
+&lt;h3 id=&#34;toc_7&#34;&gt;Idea2 Ltd.&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_7&#34;&gt;Lead Architect and Software Engineer&lt;/h4&gt;
+&lt;h4 id=&#34;toc_8&#34;&gt;Lead Architect and Software Engineer&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;October 2008 - November 2012&lt;/strong&gt; &lt;em&gt;Location:Earth:Chicago:New York&lt;/em&gt;&lt;br /&gt;
 Design, implementation, and maintenance of the Idea2 multitenant platform for&lt;br /&gt;
@@ -291,9 +290,9 @@ along with integration of other business services.&lt;/p&gt;
   at Idea2 Ltd
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_8&#34;&gt;Midway Games&lt;/h3&gt;
+&lt;h3 id=&#34;toc_9&#34;&gt;Midway Games&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_9&#34;&gt;Software Engineer&lt;/h4&gt;
+&lt;h4 id=&#34;toc_10&#34;&gt;Software Engineer&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;August 2007 - October 2008&lt;/strong&gt; &lt;em&gt;Location:Chicago, USA&lt;/em&gt;&lt;br /&gt;
 Lead development for company wide asset management system utilizing&lt;br /&gt;
@@ -310,9 +309,9 @@ a custom Unreal Engine 3 and various Linux based tools.&lt;/p&gt;
   Paul at Midway Games
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_10&#34;&gt;IP Pixel&lt;/h3&gt;
+&lt;h3 id=&#34;toc_11&#34;&gt;IP Pixel&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_11&#34;&gt;Software Engineer&lt;/h4&gt;
+&lt;h4 id=&#34;toc_12&#34;&gt;Software Engineer&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;June 2006 - August 2007&lt;/strong&gt; &lt;em&gt;Location:Chicago, USA&lt;/em&gt;&lt;br /&gt;
 Development of large scale web based social network applications for&lt;br /&gt;
@@ -329,9 +328,9 @@ large scale projects.&lt;/p&gt;
   directly with Paul at Starcom Pixel
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;toc_12&#34;&gt;School&lt;/h2&gt;
+&lt;h2 id=&#34;toc_13&#34;&gt;School&lt;/h2&gt;
 
-&lt;h4 id=&#34;toc_13&#34;&gt;University of Reading, UK&lt;/h4&gt;
+&lt;h4 id=&#34;toc_14&#34;&gt;University of Reading, UK&lt;/h4&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;MSc Cybernetics&lt;/strong&gt; 2004-2006&lt;br /&gt;
@@ -342,13 +341,13 @@ Ambisonic Microphones and Independent Component Analysis&lt;/p&gt;
 &lt;p&gt;Using unsupervised learning algorithms, I created system that
 solved the coctail party problem.&lt;/p&gt;
 
-&lt;h4 id=&#34;toc_14&#34;&gt;University of Illinois, Chicago&lt;/h4&gt;
+&lt;h4 id=&#34;toc_15&#34;&gt;University of Illinois, Chicago&lt;/h4&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;BSc Computer Science&lt;/strong&gt; 2001-2004&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&#34;toc_15&#34;&gt;Random Paul facts&lt;/h2&gt;
+&lt;h2 id=&#34;toc_16&#34;&gt;Random Paul facts&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;I played in the now defuct music act called&lt;br /&gt;
@@ -358,7 +357,7 @@ skills are unmatched, in our genre.&lt;/li&gt;
 &lt;li&gt;Cats should not be household pets.&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;toc_16&#34;&gt;Things that lack coherent meaning (nonsense)&lt;/h2&gt;
+&lt;h2 id=&#34;toc_17&#34;&gt;Things that lack coherent meaning (nonsense)&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;I used to like muscle cars until I bought a 73 Mercury Cougar XR7&lt;br /&gt;

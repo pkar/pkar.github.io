@@ -7,7 +7,27 @@
     <language>en-us</language>
     
     
-    <updated>Wed, 06 Aug 2014 20:08:03 UTC</updated>
+    <updated>Wed, 05 Nov 2014 00:21:23 UTC</updated>
+    
+    <item>
+      <title>pruxy</title>
+      <link>https://pkar.github.io/post/pruxy</link>
+      <pubDate>Wed, 05 Nov 2014 00:21:23 UTC</pubDate>
+      
+      <guid>https://pkar.github.io/post/pruxy</guid>
+      <description>&lt;p&gt;A simple reverse proxy that is configured through etcd.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/pkar/pruxy&#34;&gt;pruxy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The main use case was to have something light in front of docker containers
+on coreos.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
+docker build -t pkar/pruxy .
+docker run pkar/pruxy -port=6000 -dir=/prux -etcd=$LOCAL_IP:4001,$LOCAL_IP:4002,$LOCAL_IP:4003
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>docker vagrant setup on Mac OS X</title>
@@ -15,7 +35,11 @@
       <pubDate>Wed, 06 Aug 2014 20:08:03 UTC</pubDate>
       
       <guid>https://pkar.github.io/post/dockervagrant</guid>
-      <description>&lt;p&gt;Running docker on Mac OS X isn&amp;rsquo;t simple, and I&amp;rsquo;m dumb so I had to find a better way
+      <description>&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
+The below is outdated, with docker 1.3 you can just get the official installer.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Running docker on Mac OS X isn&amp;rsquo;t simple, and I&amp;rsquo;m dumb so I had to find a better way
 of doing things.&lt;/p&gt;
 
 &lt;p&gt;The old way I did things was to use packer to build a vagrant box with docker installed.

@@ -7,7 +7,62 @@
     <language>en-us</language>
     
     
-    <updated>Wed, 05 Nov 2014 00:21:23 UTC</updated>
+    <updated>Wed, 04 Feb 2015 05:15:58 UTC</updated>
+    
+    <item>
+      <title>runit</title>
+      <link>https://pkar.github.io/post/runit</link>
+      <pubDate>Wed, 04 Feb 2015 05:15:58 UTC</pubDate>
+      
+      <guid>https://pkar.github.io/post/runit</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://github.com/pkar/runit&#34;&gt;runit&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The main use case was to have something small and easy to use
+inside docker containers. It could be used to continually run
+tests on changes as well I guess, among other things.&lt;/p&gt;
+
+&lt;p&gt;Initially just using a bash script could work&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
+export PID=
+
+killit() {
+  kill $PID 
+  exit
+}
+
+restartit() {
+  kill $PID 
+  trap - SIGINT SIGTERM EXIT
+  trap - SIGHUP
+  runit
+}
+
+runit() {
+  /path/to/myapp -options here
+  PID=$!
+  trap killit SIGINT SIGTERM EXIT
+  trap restartit SIGHUP
+  wait
+}
+
+runit
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Unless you want to for instance watch for changes and restart in say development.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
+$ # long running processes with keep alive and watch
+$ runit -alive -cmd=&#34;test/test.sh&#34; -watch=./
+INFO 2015/02/03 20:54:59 runit.go:100: running test/test.sh
+foo
+foo
+foo
+foo
+^C
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>pruxy</title>

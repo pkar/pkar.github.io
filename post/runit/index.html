@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> Golang &middot; Paul Karadimas </title>
+  <title> runit &middot; Paul Karadimas </title>
 
   
   <link rel="stylesheet" href="https://pkar.github.io/css/poole.css">
@@ -20,7 +20,7 @@
   <link rel="shortcut icon" href="/favicon.ico">
 
   
-  <link href="https://pkar.github.io/tags/golang/index.xml" rel="alternate" type="application/rss+xml" title="Paul Karadimas" />
+  <link href="" rel="alternate" type="application/rss+xml" title="Paul Karadimas" />
 
 	<link rel="stylesheet" href="/js/highlight/styles/ir_black.css">
 	<script src="/js/highlight/highlight.pack.js"></script>
@@ -64,14 +64,58 @@
 
 
     <div class="content container">
-  <ul class="posts">
-      
-      <li><span><a href="https://pkar.github.io/post/refurbished">self updating go package</a><time class="pull-right post-list">Sun, Aug 3, 2014</h4></time></span></span></li>
-      
-      <li><span><a href="https://pkar.github.io/post/stack">stack</a><time class="pull-right post-list">Sat, Aug 2, 2014</h4></time></span></span></li>
-      
-  </ul>
-    </div>
+<div class="post">
+  <h1>runit</h1>
+  <span class="post-date">Wed, Feb 4, 2015</span>
+      <p><a href="https://github.com/pkar/runit">runit</a></p>
+
+<p>The main use case was to have something small and easy to use
+inside docker containers. It could be used to continually run
+tests on changes as well I guess, among other things.</p>
+
+<p>Initially just using a bash script could work</p>
+
+<pre><code class="bash">
+export PID=
+
+killit() {
+  kill $PID 
+  exit
+}
+
+restartit() {
+  kill $PID 
+  trap - SIGINT SIGTERM EXIT
+  trap - SIGHUP
+  runit
+}
+
+runit() {
+  /path/to/myapp -options here
+  PID=$!
+  trap killit SIGINT SIGTERM EXIT
+  trap restartit SIGHUP
+  wait
+}
+
+runit
+</code></pre>
+
+<p>Unless you want to for instance watch for changes and restart in say development.</p>
+
+<pre><code class="bash">
+$ # long running processes with keep alive and watch
+$ runit -alive -cmd="test/test.sh" -watch=./
+INFO 2015/02/03 20:54:59 runit.go:100: running test/test.sh
+foo
+foo
+foo
+foo
+^C
+</code></pre>
+
+</div>
+</div>
 
 	<script>hljs.initHighlightingOnLoad();</script>
 	<script>
@@ -84,6 +128,7 @@
 		ga('send', 'pageview');
 
 	</script>
+
 
   </body>
 </html>

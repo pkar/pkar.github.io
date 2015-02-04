@@ -24,6 +24,7 @@ tests on changes as well I guess, among other things.&lt;/p&gt;
 &lt;p&gt;Initially just using a bash script could work&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
+#!/bin/bash
 export PID=
 
 killit() {

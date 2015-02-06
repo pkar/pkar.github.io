@@ -89,7 +89,7 @@ tests on changes as well I guess, among other things.</p>
 export PID=
 
 killit() {
-  kill $PID 
+  kill $PID
   exit
 }
 
@@ -101,7 +101,8 @@ restartit() {
 }
 
 runit() {
-  /path/to/myapp -options here
+  /path/to/myapp -options here &
+  /some -other -thing &
   PID=$!
   trap killit SIGINT SIGTERM EXIT
   trap restartit SIGHUP

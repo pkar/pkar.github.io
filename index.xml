@@ -323,7 +323,10 @@ func New() *Stack {
 
 &lt;h4 id=&#34;toc_4&#34;&gt;Software Server Engineer &lt;strong&gt;August 2014 - Present&lt;/strong&gt; &lt;em&gt;Portland, Or, USA&lt;/em&gt;&lt;/h4&gt;
 
-&lt;pre&gt;&lt;code&gt;- ...
+&lt;pre&gt;&lt;code&gt;- Converting Python microservices and dashboard frontends to 12 factor apps and putting them into containers with Docker
+- Orchestrating services into development environments with Docker
+- Configuration management with Salt and conversion of legacy Chef system
+- Feature/Bugfix development of various Python microservice api&#39;s with Mysql and Memcached backends
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;toc_5&#34;&gt;DeNA(formerly Ngmoco)&lt;/h3&gt;

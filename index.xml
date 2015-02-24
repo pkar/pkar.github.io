@@ -15,11 +15,11 @@
       <pubDate>Mon, 23 Feb 2015 19:35:13 -0800</pubDate>
       
       <guid>https://pkar.github.io/post/dnsmasq/</guid>
-      <description>&lt;p&gt;For a simple dev environment wildcard setup&lt;/p&gt;
+      <description>
 
-&lt;ol&gt;
-&lt;li&gt;Install dnsmasq&lt;/li&gt;
-&lt;/ol&gt;
+&lt;p&gt;For a simple dev environment wildcard setup&lt;/p&gt;
+
+&lt;h2 id=&#34;install-dnsmasq:dc0fd55d5e6d99f1b0154c995452f3bf&#34;&gt;Install dnsmasq&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;brew install dnsmasq
 
@@ -31,9 +31,7 @@
 # sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Configure dnsmasq&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;configure-dnsmasq:dc0fd55d5e6d99f1b0154c995452f3bf&#34;&gt;Configure dnsmasq&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;mkdir -p /usr/local/etc
 echo &amp;quot;address=/local.dev.com/127.0.0.1&amp;quot; &amp;gt; /usr/local/etc/dnsmasq.conf
@@ -61,9 +59,7 @@ dig boo.local.dev.com @127.0.0.1
 # ;; MSG SIZE  rcvd: 57
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Configure OS X&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;configure-os-x:dc0fd55d5e6d99f1b0154c995452f3bf&#34;&gt;Configure OS X&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo mkdir -p /etc/resolver
 sudo tee /etc/resolver/local.dev.com &amp;gt;/dev/null &amp;lt;&amp;lt;EOF
@@ -71,9 +67,7 @@ nameserver 127.0.0.1
 EOF
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;ol&gt;
-&lt;li&gt;Test it out&lt;/li&gt;
-&lt;/ol&gt;
+&lt;h2 id=&#34;test-it-out:dc0fd55d5e6d99f1b0154c995452f3bf&#34;&gt;Test it out&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;ping -c 1 www.google.com
 PING www.google.com (216.58.216.164): 56 data bytes

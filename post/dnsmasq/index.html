@@ -67,11 +67,11 @@
 <div class="post">
   <h1>Mac OS X dnsmasq</h1>
   <span class="post-date">Mon, Feb 23, 2015</span>
-      <p>For a simple dev environment wildcard setup</p>
+      
 
-<ol>
-<li>Install dnsmasq</li>
-</ol>
+<p>For a simple dev environment wildcard setup</p>
+
+<h2 id="install-dnsmasq:dc0fd55d5e6d99f1b0154c995452f3bf">Install dnsmasq</h2>
 
 <pre><code>brew install dnsmasq
 
@@ -83,9 +83,7 @@
 # sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 </code></pre>
 
-<ol>
-<li>Configure dnsmasq</li>
-</ol>
+<h2 id="configure-dnsmasq:dc0fd55d5e6d99f1b0154c995452f3bf">Configure dnsmasq</h2>
 
 <pre><code>mkdir -p /usr/local/etc
 echo &quot;address=/local.dev.com/127.0.0.1&quot; &gt; /usr/local/etc/dnsmasq.conf
@@ -113,9 +111,7 @@ dig boo.local.dev.com @127.0.0.1
 # ;; MSG SIZE  rcvd: 57
 </code></pre>
 
-<ol>
-<li>Configure OS X</li>
-</ol>
+<h2 id="configure-os-x:dc0fd55d5e6d99f1b0154c995452f3bf">Configure OS X</h2>
 
 <pre><code>sudo mkdir -p /etc/resolver
 sudo tee /etc/resolver/local.dev.com &gt;/dev/null &lt;&lt;EOF
@@ -123,9 +119,7 @@ nameserver 127.0.0.1
 EOF
 </code></pre>
 
-<ol>
-<li>Test it out</li>
-</ol>
+<h2 id="test-it-out:dc0fd55d5e6d99f1b0154c995452f3bf">Test it out</h2>
 
 <pre><code>ping -c 1 www.google.com
 PING www.google.com (216.58.216.164): 56 data bytes

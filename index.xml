@@ -1,20 +1,105 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Recent Content on Paul Karadimas </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>https://pkar.github.io/index.xml</link>
+    <title>Paul Karadimas</title>
+    <link>https://pkar.github.io/</link>
+    <description>Recent content on Paul Karadimas</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Mon, 23 Feb 2015 19:35:13 -0800</lastBuildDate>
+    <atom:link href="https://pkar.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <updated>Wed, 04 Feb 2015 05:15:58 UTC</updated>
+    <item>
+      <title>Mac OS X dnsmasq</title>
+      <link>https://pkar.github.io/post/dnsmasq/</link>
+      <pubDate>Mon, 23 Feb 2015 19:35:13 -0800</pubDate>
+      
+      <guid>https://pkar.github.io/post/dnsmasq/</guid>
+      <description>&lt;p&gt;For a simple dev environment wildcard setup&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Install dnsmasq&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;brew install dnsmasq
+
+# To have launchd start dnsmasq at startup:
+# sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+# sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+#
+# To load now
+# sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Configure dnsmasq&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p /usr/local/etc
+echo &amp;quot;address=/local.dev.com/127.0.0.1&amp;quot; &amp;gt; /usr/local/etc/dnsmasq.conf
+
+sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl start homebrew.mxcl.dnsmasq
+
+dig boo.local.dev.com @127.0.0.1
+
+# ; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.8.3-P1 &amp;lt;&amp;lt;&amp;gt;&amp;gt; boo.local.dev.com @127.0.0.1
+# ;; global options: +cmd
+# ;; Got answer:
+# ;; -&amp;gt;&amp;gt;HEADER&amp;lt;&amp;lt;- opcode: QUERY, status: NOERROR, id: 11853
+# ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+#
+# ;; QUESTION SECTION:
+# ;boo.local.dev.com.	IN	A
+#
+# ;; ANSWER SECTION:
+# boo.local.dev.com. 0	IN	A	127.0.0.1
+#
+# ;; Query time: 0 msec
+# ;; SERVER: 127.0.0.1#53(127.0.0.1)
+# ;; WHEN: Mon Feb 23 18:31:34 2015
+# ;; MSG SIZE  rcvd: 57
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Configure OS X&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo mkdir -p /etc/resolver
+sudo tee /etc/resolver/local.dev.com &amp;gt;/dev/null &amp;lt;&amp;lt;EOF
+nameserver 127.0.0.1
+EOF
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Test it out&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;ping -c 1 www.google.com
+PING www.google.com (216.58.216.164): 56 data bytes
+64 bytes from 216.58.216.164: icmp_seq=0 ttl=55 time=16.349 ms
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 16.349/16.349/16.349/0.000 ms
+
+ping -c 1 boo.local.dev.com
+PING boo.local.dev.com (127.0.0.1): 56 data bytes
+64 bytes from 192.168.59.103: icmp_seq=0 ttl=64 time=12.879 ms
+
+--- boo.local.dev.com ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 12.879/12.879/12.879/0.000 ms
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>runit</title>
-      <link>https://pkar.github.io/post/runit</link>
-      <pubDate>Wed, 04 Feb 2015 05:15:58 UTC</pubDate>
+      <link>https://pkar.github.io/post/runit/</link>
+      <pubDate>Wed, 04 Feb 2015 05:15:58 +0000</pubDate>
       
-      <guid>https://pkar.github.io/post/runit</guid>
+      <guid>https://pkar.github.io/post/runit/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/pkar/runit&#34;&gt;runit&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The main use case was to have something small and easy to use
@@ -68,10 +153,10 @@ foo
     
     <item>
       <title>pruxy</title>
-      <link>https://pkar.github.io/post/pruxy</link>
-      <pubDate>Wed, 05 Nov 2014 00:21:23 UTC</pubDate>
+      <link>https://pkar.github.io/post/pruxy/</link>
+      <pubDate>Wed, 05 Nov 2014 00:21:23 +0000</pubDate>
       
-      <guid>https://pkar.github.io/post/pruxy</guid>
+      <guid>https://pkar.github.io/post/pruxy/</guid>
       <description>&lt;p&gt;A simple reverse proxy that is configured through etcd.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/pkar/pruxy&#34;&gt;pruxy&lt;/a&gt;&lt;/p&gt;
@@ -88,10 +173,10 @@ docker run pkar/pruxy -port=6000 -dir=/prux -etcd=$LOCAL_IP:4001,$LOCAL_IP:4002,
     
     <item>
       <title>docker vagrant setup on Mac OS X</title>
-      <link>https://pkar.github.io/post/dockervagrant</link>
-      <pubDate>Wed, 06 Aug 2014 20:08:03 UTC</pubDate>
+      <link>https://pkar.github.io/post/dockervagrant/</link>
+      <pubDate>Wed, 06 Aug 2014 20:08:03 +0000</pubDate>
       
-      <guid>https://pkar.github.io/post/dockervagrant</guid>
+      <guid>https://pkar.github.io/post/dockervagrant/</guid>
       <description>&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
 The below is outdated, with docker 1.3 you can just get the official installer.
 &lt;/code&gt;&lt;/pre&gt;
@@ -170,10 +255,10 @@ docker run -it --rm dockerfile/python
     
     <item>
       <title>self updating go package</title>
-      <link>https://pkar.github.io/post/refurbished</link>
-      <pubDate>Sun, 03 Aug 2014 00:44:38 UTC</pubDate>
+      <link>https://pkar.github.io/post/refurbished/</link>
+      <pubDate>Sun, 03 Aug 2014 00:44:38 +0000</pubDate>
       
-      <guid>https://pkar.github.io/post/refurbished</guid>
+      <guid>https://pkar.github.io/post/refurbished/</guid>
       <description>&lt;p&gt;For whatever reason I thought it&amp;rsquo;d be great to have a go binary update itself. My usual
 method is to just use a &lt;a href=&#34;https://github.com/pkar/go-fabric&#34;&gt;fabric file&lt;/a&gt;. But that
 got boring so I made a refurbishing package instead. &lt;a href=&#34;https://github.com/pkar/refurbish&#34;&gt;refurbish&lt;/a&gt;
@@ -202,10 +287,10 @@ the binary has changed, and if so it replaces itself and reloads. Work in progre
     
     <item>
       <title>stack</title>
-      <link>https://pkar.github.io/post/stack</link>
-      <pubDate>Sat, 02 Aug 2014 00:48:45 UTC</pubDate>
+      <link>https://pkar.github.io/post/stack/</link>
+      <pubDate>Sat, 02 Aug 2014 00:48:45 +0000</pubDate>
       
-      <guid>https://pkar.github.io/post/stack</guid>
+      <guid>https://pkar.github.io/post/stack/</guid>
       <description>&lt;p&gt;I needed something simple to try out the formatting of this page.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;go&#34;&gt;
@@ -291,38 +376,38 @@ func New() *Stack {
     
     <item>
       <title>about</title>
-      <link>https://pkar.github.io/about</link>
-      <pubDate>Fri, 01 Aug 2014 00:43:17 UTC</pubDate>
+      <link>https://pkar.github.io/about/</link>
+      <pubDate>Fri, 01 Aug 2014 00:43:17 +0000</pubDate>
       
-      <guid>https://pkar.github.io/about</guid>
-      <description>&lt;p&gt;Hi I&amp;rsquo;m Paul &lt;a href=&#34;/resume/&#34;&gt;resume&lt;/a&gt; | &lt;a href=&#34;https://github.com/pkar&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
+      <guid>https://pkar.github.io/about/</guid>
+      <description>&lt;p&gt;Hi I&amp;rsquo;m Paul &lt;a href=&#34;https://pkar.github.io/resume/&#34;&gt;resume&lt;/a&gt; | &lt;a href=&#34;https://github.com/pkar&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;/images/me.jpg&#34; alt=&#34;me&#34; /&gt;
+&lt;p&gt;&lt;img src=&#34;https://pkar.github.io/images/me.jpg&#34; alt=&#34;me&#34; /&gt;
 &lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>resume</title>
-      <link>https://pkar.github.io/resume</link>
-      <pubDate>Wed, 01 Jan 1000 00:00:00 UTC</pubDate>
+      <link>https://pkar.github.io/resume/</link>
+      <pubDate>Wed, 01 Jan 1000 00:00:00 +0000</pubDate>
       
-      <guid>https://pkar.github.io/resume</guid>
+      <guid>https://pkar.github.io/resume/</guid>
       <description>
 
-&lt;h1 id=&#34;toc_0&#34;&gt;Paul Karadimas&lt;/h1&gt;
+&lt;h1 id=&#34;paul-karadimas:c59a67a3c7bc5faa453847420267045e&#34;&gt;Paul Karadimas&lt;/h1&gt;
 
 &lt;p&gt;I like computers in general.&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_1&#34;&gt;Things I&amp;rsquo;ve worked with in the past&lt;/h2&gt;
+&lt;h2 id=&#34;things-i-ve-worked-with-in-the-past:c59a67a3c7bc5faa453847420267045e&#34;&gt;Things I&amp;rsquo;ve worked with in the past&lt;/h2&gt;
 
 &lt;p&gt;&lt;code&gt;Software/Server Architecture&lt;/code&gt; go, python, mysql, mongodb, redis, postgres, javascript, c/c++, objective-c, php, design and implementation of large scale systems, etc&amp;hellip;&lt;/p&gt;
 
-&lt;h2 id=&#34;toc_2&#34;&gt;Work&lt;/h2&gt;
+&lt;h2 id=&#34;work:c59a67a3c7bc5faa453847420267045e&#34;&gt;Work&lt;/h2&gt;
 
-&lt;h3 id=&#34;toc_3&#34;&gt;Upsight&lt;/h3&gt;
+&lt;h3 id=&#34;upsight:c59a67a3c7bc5faa453847420267045e&#34;&gt;Upsight&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_4&#34;&gt;Software Server Engineer &lt;strong&gt;August 2014 - Present&lt;/strong&gt; &lt;em&gt;Portland, Or, USA&lt;/em&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;software-server-engineer-august-2014-present-portland-or-usa:c59a67a3c7bc5faa453847420267045e&#34;&gt;Software Server Engineer &lt;strong&gt;August 2014 - Present&lt;/strong&gt; &lt;em&gt;Portland, Or, USA&lt;/em&gt;&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;- Converting Python microservices and dashboard frontends to 12 factor apps and putting them into containers with Docker
 - Orchestrating services into development environments with Docker
@@ -330,9 +415,9 @@ func New() *Stack {
 - Feature/Bugfix development of various Python microservice api&#39;s with Mysql and Memcached backends
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_5&#34;&gt;DeNA(formerly Ngmoco)&lt;/h3&gt;
+&lt;h3 id=&#34;dena-formerly-ngmoco:c59a67a3c7bc5faa453847420267045e&#34;&gt;DeNA(formerly Ngmoco)&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_6&#34;&gt;Software Server Engineer &lt;strong&gt;December 2012 - August 2014&lt;/strong&gt; &lt;em&gt;San Francisco, Ca, USA&lt;/em&gt;&lt;/h4&gt;
+&lt;h4 id=&#34;software-server-engineer-december-2012-august-2014-san-francisco-ca-usa:c59a67a3c7bc5faa453847420267045e&#34;&gt;Software Server Engineer &lt;strong&gt;December 2012 - August 2014&lt;/strong&gt; &lt;em&gt;San Francisco, Ca, USA&lt;/em&gt;&lt;/h4&gt;
 
 &lt;pre&gt;&lt;code&gt;- Rewrite of a push notification system in Go, Redis, MySQL
 - Creation of a cross promotion recommendation service in Go with MongoDB
@@ -343,9 +428,9 @@ func New() *Stack {
 - Maintenance on various Ruby and Go services like UA, push notifications, a/b testing, analytics proxy, using Redis, MongoDB, MySQL, Cassandra, RabbitMQ
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_7&#34;&gt;Idea2 Ltd.&lt;/h3&gt;
+&lt;h3 id=&#34;idea2-ltd:c59a67a3c7bc5faa453847420267045e&#34;&gt;Idea2 Ltd.&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_8&#34;&gt;Lead Architect and Software Engineer&lt;/h4&gt;
+&lt;h4 id=&#34;lead-architect-and-software-engineer:c59a67a3c7bc5faa453847420267045e&#34;&gt;Lead Architect and Software Engineer&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;October 2008 - November 2012&lt;/strong&gt; &lt;em&gt;Location:Earth:Chicago:New York&lt;/em&gt;&lt;br /&gt;
 Design, implementation, and maintenance of the Idea2 multitenant platform for&lt;br /&gt;
@@ -376,9 +461,9 @@ along with integration of other business services.&lt;/p&gt;
   at Idea2 Ltd
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_9&#34;&gt;Midway Games&lt;/h3&gt;
+&lt;h3 id=&#34;midway-games:c59a67a3c7bc5faa453847420267045e&#34;&gt;Midway Games&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_10&#34;&gt;Software Engineer&lt;/h4&gt;
+&lt;h4 id=&#34;software-engineer:c59a67a3c7bc5faa453847420267045e&#34;&gt;Software Engineer&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;August 2007 - October 2008&lt;/strong&gt; &lt;em&gt;Location:Chicago, USA&lt;/em&gt;&lt;br /&gt;
 Lead development for company wide asset management system utilizing&lt;br /&gt;
@@ -395,9 +480,9 @@ a custom Unreal Engine 3 and various Linux based tools.&lt;/p&gt;
   Paul at Midway Games
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3 id=&#34;toc_11&#34;&gt;IP Pixel&lt;/h3&gt;
+&lt;h3 id=&#34;ip-pixel:c59a67a3c7bc5faa453847420267045e&#34;&gt;IP Pixel&lt;/h3&gt;
 
-&lt;h4 id=&#34;toc_12&#34;&gt;Software Engineer&lt;/h4&gt;
+&lt;h4 id=&#34;software-engineer-1:c59a67a3c7bc5faa453847420267045e&#34;&gt;Software Engineer&lt;/h4&gt;
 
 &lt;p&gt;&lt;strong&gt;June 2006 - August 2007&lt;/strong&gt; &lt;em&gt;Location:Chicago, USA&lt;/em&gt;&lt;br /&gt;
 Development of large scale web based social network applications for&lt;br /&gt;
@@ -414,9 +499,9 @@ large scale projects.&lt;/p&gt;
   directly with Paul at Starcom Pixel
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;toc_13&#34;&gt;School&lt;/h2&gt;
+&lt;h2 id=&#34;school:c59a67a3c7bc5faa453847420267045e&#34;&gt;School&lt;/h2&gt;
 
-&lt;h4 id=&#34;toc_14&#34;&gt;University of Reading, UK&lt;/h4&gt;
+&lt;h4 id=&#34;university-of-reading-uk:c59a67a3c7bc5faa453847420267045e&#34;&gt;University of Reading, UK&lt;/h4&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;MSc Cybernetics&lt;/strong&gt; 2004-2006&lt;br /&gt;
@@ -427,13 +512,13 @@ Ambisonic Microphones and Independent Component Analysis&lt;/p&gt;
 &lt;p&gt;Using unsupervised learning algorithms, I created system that
 solved the coctail party problem.&lt;/p&gt;
 
-&lt;h4 id=&#34;toc_15&#34;&gt;University of Illinois, Chicago&lt;/h4&gt;
+&lt;h4 id=&#34;university-of-illinois-chicago:c59a67a3c7bc5faa453847420267045e&#34;&gt;University of Illinois, Chicago&lt;/h4&gt;
 
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;BSc Computer Science&lt;/strong&gt; 2001-2004&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h2 id=&#34;toc_16&#34;&gt;Random Paul facts&lt;/h2&gt;
+&lt;h2 id=&#34;random-paul-facts:c59a67a3c7bc5faa453847420267045e&#34;&gt;Random Paul facts&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;I played in the now defuct music act called&lt;br /&gt;
@@ -443,7 +528,7 @@ skills are unmatched, in our genre.&lt;/li&gt;
 &lt;li&gt;Cats should not be household pets.&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;toc_17&#34;&gt;Things that lack coherent meaning (nonsense)&lt;/h2&gt;
+&lt;h2 id=&#34;things-that-lack-coherent-meaning-nonsense:c59a67a3c7bc5faa453847420267045e&#34;&gt;Things that lack coherent meaning (nonsense)&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;I used to like muscle cars until I bought a 73 Mercury Cougar XR7&lt;br /&gt;

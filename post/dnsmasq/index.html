@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title> self updating go package &middot; Paul Karadimas </title>
+  <title> Mac OS X dnsmasq &middot; Paul Karadimas </title>
 
   
   <link rel="stylesheet" href="https://pkar.github.io//css/poole.css">
@@ -65,31 +65,84 @@
 
     <div class="content container">
 <div class="post">
-  <h1>self updating go package</h1>
-  <span class="post-date">Sun, Aug 3, 2014</span>
-      <p>For whatever reason I thought it&rsquo;d be great to have a go binary update itself. My usual
-method is to just use a <a href="https://github.com/pkar/go-fabric">fabric file</a>. But that
-got boring so I made a refurbishing package instead. <a href="https://github.com/pkar/refurbish">refurbish</a>
-<pre><code class="go">
-package main</p>
+  <h1>Mac OS X dnsmasq</h1>
+  <span class="post-date">Mon, Feb 23, 2015</span>
+      <p>For a simple dev environment wildcard setup</p>
 
-<p>import &ldquo;github.com/pkar/refurbish&rdquo;</p>
+<ol>
+<li>Install dnsmasq</li>
+</ol>
 
-<p>func main() {
-    // Path to latest binary,
-    // path to latest md5 file,
-    // restart commands semicolon separated
-    r := refurbish.New(
-        &ldquo;<a href="http://example.com/path/to/binary&quot;">http://example.com/path/to/binary&quot;</a>,
-        &ldquo;<a href="http://example.com/path/to/md5&quot;">http://example.com/path/to/md5&quot;</a>,
-        &ldquo;sudo initctl restart binary&rdquo;,
-    )
-    go r.run()
-}
-</code></pre></p>
+<pre><code>brew install dnsmasq
 
-<p>Usage is pretty simple, features are for now as basic as it gets. Basically it just pings a url to check if
-the binary has changed, and if so it replaces itself and reloads. Work in progress&hellip;</p>
+# To have launchd start dnsmasq at startup:
+# sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+# sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+#
+# To load now
+# sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+</code></pre>
+
+<ol>
+<li>Configure dnsmasq</li>
+</ol>
+
+<pre><code>mkdir -p /usr/local/etc
+echo &quot;address=/local.dev.com/127.0.0.1&quot; &gt; /usr/local/etc/dnsmasq.conf
+
+sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl start homebrew.mxcl.dnsmasq
+
+dig boo.local.dev.com @127.0.0.1
+
+# ; &lt;&lt;&gt;&gt; DiG 9.8.3-P1 &lt;&lt;&gt;&gt; boo.local.dev.com @127.0.0.1
+# ;; global options: +cmd
+# ;; Got answer:
+# ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 11853
+# ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+#
+# ;; QUESTION SECTION:
+# ;boo.local.dev.com.	IN	A
+#
+# ;; ANSWER SECTION:
+# boo.local.dev.com. 0	IN	A	127.0.0.1
+#
+# ;; Query time: 0 msec
+# ;; SERVER: 127.0.0.1#53(127.0.0.1)
+# ;; WHEN: Mon Feb 23 18:31:34 2015
+# ;; MSG SIZE  rcvd: 57
+</code></pre>
+
+<ol>
+<li>Configure OS X</li>
+</ol>
+
+<pre><code>sudo mkdir -p /etc/resolver
+sudo tee /etc/resolver/local.dev.com &gt;/dev/null &lt;&lt;EOF
+nameserver 127.0.0.1
+EOF
+</code></pre>
+
+<ol>
+<li>Test it out</li>
+</ol>
+
+<pre><code>ping -c 1 www.google.com
+PING www.google.com (216.58.216.164): 56 data bytes
+64 bytes from 216.58.216.164: icmp_seq=0 ttl=55 time=16.349 ms
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 16.349/16.349/16.349/0.000 ms
+
+ping -c 1 boo.local.dev.com
+PING boo.local.dev.com (127.0.0.1): 56 data bytes
+64 bytes from 192.168.59.103: icmp_seq=0 ttl=64 time=12.879 ms
+
+--- boo.local.dev.com ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 12.879/12.879/12.879/0.000 ms
+</code></pre>
 
 </div>
 </div>

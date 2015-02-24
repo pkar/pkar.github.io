@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-      <title>Docker on Paul Karadimas </title>
-      <generator uri="https://hugo.spf13.com">Hugo</generator>
-    <link>https://pkar.github.io/tags/docker/index.xml</link>
+    <title>Docker on Paul Karadimas</title>
+    <link>https://pkar.github.io/tags/docker/</link>
+    <description>Recent content in Docker on Paul Karadimas</description>
+    <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    
-    
-    <updated>Wed, 06 Aug 2014 20:08:03 UTC</updated>
+    <lastBuildDate>Wed, 06 Aug 2014 20:08:03 +0000</lastBuildDate>
+    <atom:link href="https://pkar.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>docker vagrant setup on Mac OS X</title>
-      <link>https://pkar.github.io/post/dockervagrant</link>
-      <pubDate>Wed, 06 Aug 2014 20:08:03 UTC</pubDate>
+      <link>https://pkar.github.io/post/dockervagrant/</link>
+      <pubDate>Wed, 06 Aug 2014 20:08:03 +0000</pubDate>
       
-      <guid>https://pkar.github.io/post/dockervagrant</guid>
+      <guid>https://pkar.github.io/post/dockervagrant/</guid>
       <description>&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
 The below is outdated, with docker 1.3 you can just get the official installer.
 &lt;/code&gt;&lt;/pre&gt;

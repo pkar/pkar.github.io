@@ -10,9 +10,9 @@
   <title> Paul Karadimas &middot; Paul Karadimas </title>
 
   
-  <link rel="stylesheet" href="https://pkar.github.io/css/poole.css">
-  <link rel="stylesheet" href="https://pkar.github.io/css/syntax.css">
-  <link rel="stylesheet" href="https://pkar.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://pkar.github.io//css/poole.css">
+  <link rel="stylesheet" href="https://pkar.github.io//css/syntax.css">
+  <link rel="stylesheet" href="https://pkar.github.io//css/hyde.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   
@@ -41,9 +41,9 @@
     <ul class="sidebar-nav">
       <li><a href="/">home</a> </li>
       
-        <li><a href="https://pkar.github.io/about"> about </a></li>
+        <li><a href="/about/"> about </a></li>
       
-        <li><a href="https://pkar.github.io/resume"> resume </a></li>
+        <li><a href="/resume/"> resume </a></li>
       
     </ul>
 
@@ -69,7 +69,95 @@
       
   <div class="post">
     <h1 class="post-title">
-      <a href="https://pkar.github.io/post/runit">
+      <a href="https://pkar.github.io/post/dnsmasq/">
+        Mac OS X dnsmasq
+      </a>
+    </h1>
+
+    <span class="post-date">Mon, Feb 23, 2015</span>
+
+    <p>For a simple dev environment wildcard setup</p>
+
+<ol>
+<li>Install dnsmasq</li>
+</ol>
+
+<pre><code>brew install dnsmasq
+
+# To have launchd start dnsmasq at startup:
+# sudo cp -fv /usr/local/opt/dnsmasq/*.plist /Library/LaunchDaemons
+# sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+#
+# To load now
+# sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+</code></pre>
+
+<ol>
+<li>Configure dnsmasq</li>
+</ol>
+
+<pre><code>mkdir -p /usr/local/etc
+echo &quot;address=/local.dev.com/127.0.0.1&quot; &gt; /usr/local/etc/dnsmasq.conf
+
+sudo launchctl stop homebrew.mxcl.dnsmasq
+sudo launchctl start homebrew.mxcl.dnsmasq
+
+dig boo.local.dev.com @127.0.0.1
+
+# ; &lt;&lt;&gt;&gt; DiG 9.8.3-P1 &lt;&lt;&gt;&gt; boo.local.dev.com @127.0.0.1
+# ;; global options: +cmd
+# ;; Got answer:
+# ;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 11853
+# ;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
+#
+# ;; QUESTION SECTION:
+# ;boo.local.dev.com.	IN	A
+#
+# ;; ANSWER SECTION:
+# boo.local.dev.com. 0	IN	A	127.0.0.1
+#
+# ;; Query time: 0 msec
+# ;; SERVER: 127.0.0.1#53(127.0.0.1)
+# ;; WHEN: Mon Feb 23 18:31:34 2015
+# ;; MSG SIZE  rcvd: 57
+</code></pre>
+
+<ol>
+<li>Configure OS X</li>
+</ol>
+
+<pre><code>sudo mkdir -p /etc/resolver
+sudo tee /etc/resolver/local.dev.com &gt;/dev/null &lt;&lt;EOF
+nameserver 127.0.0.1
+EOF
+</code></pre>
+
+<ol>
+<li>Test it out</li>
+</ol>
+
+<pre><code>ping -c 1 www.google.com
+PING www.google.com (216.58.216.164): 56 data bytes
+64 bytes from 216.58.216.164: icmp_seq=0 ttl=55 time=16.349 ms
+
+--- www.google.com ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 16.349/16.349/16.349/0.000 ms
+
+ping -c 1 boo.local.dev.com
+PING boo.local.dev.com (127.0.0.1): 56 data bytes
+64 bytes from 192.168.59.103: icmp_seq=0 ttl=64 time=12.879 ms
+
+--- boo.local.dev.com ping statistics ---
+1 packets transmitted, 1 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 12.879/12.879/12.879/0.000 ms
+</code></pre>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="https://pkar.github.io/post/runit/">
         runit
       </a>
     </h1>
@@ -129,7 +217,7 @@ foo
   
   <div class="post">
     <h1 class="post-title">
-      <a href="https://pkar.github.io/post/pruxy">
+      <a href="https://pkar.github.io/post/pruxy/">
         pruxy
       </a>
     </h1>
@@ -152,7 +240,7 @@ docker run pkar/pruxy -port=6000 -dir=/prux -etcd=$LOCAL_IP:4001,$LOCAL_IP:4002,
   
   <div class="post">
     <h1 class="post-title">
-      <a href="https://pkar.github.io/post/dockervagrant">
+      <a href="https://pkar.github.io/post/dockervagrant/">
         docker vagrant setup on Mac OS X
       </a>
     </h1>
@@ -237,7 +325,7 @@ docker run -it --rm dockerfile/python
   
   <div class="post">
     <h1 class="post-title">
-      <a href="https://pkar.github.io/post/refurbished">
+      <a href="https://pkar.github.io/post/refurbished/">
         self updating go package
       </a>
     </h1>
@@ -272,7 +360,7 @@ the binary has changed, and if so it replaces itself and reloads. Work in progre
   
   <div class="post">
     <h1 class="post-title">
-      <a href="https://pkar.github.io/post/stack">
+      <a href="https://pkar.github.io/post/stack/">
         stack
       </a>
     </h1>
@@ -364,7 +452,7 @@ func New() *Stack {
   
   <div class="post">
     <h1 class="post-title">
-      <a href="https://pkar.github.io/about">
+      <a href="https://pkar.github.io/about/">
         about
       </a>
     </h1>
@@ -380,7 +468,7 @@ func New() *Stack {
   
   <div class="post">
     <h1 class="post-title">
-      <a href="https://pkar.github.io/resume">
+      <a href="https://pkar.github.io/resume/">
         resume
       </a>
     </h1>
@@ -389,19 +477,19 @@ func New() *Stack {
 
     
 
-<h1 id="toc_0">Paul Karadimas</h1>
+<h1 id="paul-karadimas:c59a67a3c7bc5faa453847420267045e">Paul Karadimas</h1>
 
 <p>I like computers in general.</p>
 
-<h2 id="toc_1">Things I&rsquo;ve worked with in the past</h2>
+<h2 id="things-i-ve-worked-with-in-the-past:c59a67a3c7bc5faa453847420267045e">Things I&rsquo;ve worked with in the past</h2>
 
 <p><code>Software/Server Architecture</code> go, python, mysql, mongodb, redis, postgres, javascript, c/c++, objective-c, php, design and implementation of large scale systems, etc&hellip;</p>
 
-<h2 id="toc_2">Work</h2>
+<h2 id="work:c59a67a3c7bc5faa453847420267045e">Work</h2>
 
-<h3 id="toc_3">Upsight</h3>
+<h3 id="upsight:c59a67a3c7bc5faa453847420267045e">Upsight</h3>
 
-<h4 id="toc_4">Software Server Engineer <strong>August 2014 - Present</strong> <em>Portland, Or, USA</em></h4>
+<h4 id="software-server-engineer-august-2014-present-portland-or-usa:c59a67a3c7bc5faa453847420267045e">Software Server Engineer <strong>August 2014 - Present</strong> <em>Portland, Or, USA</em></h4>
 
 <pre><code>- Converting Python microservices and dashboard frontends to 12 factor apps and putting them into containers with Docker
 - Orchestrating services into development environments with Docker
@@ -409,9 +497,9 @@ func New() *Stack {
 - Feature/Bugfix development of various Python microservice api's with Mysql and Memcached backends
 </code></pre>
 
-<h3 id="toc_5">DeNA(formerly Ngmoco)</h3>
+<h3 id="dena-formerly-ngmoco:c59a67a3c7bc5faa453847420267045e">DeNA(formerly Ngmoco)</h3>
 
-<h4 id="toc_6">Software Server Engineer <strong>December 2012 - August 2014</strong> <em>San Francisco, Ca, USA</em></h4>
+<h4 id="software-server-engineer-december-2012-august-2014-san-francisco-ca-usa:c59a67a3c7bc5faa453847420267045e">Software Server Engineer <strong>December 2012 - August 2014</strong> <em>San Francisco, Ca, USA</em></h4>
 
 <pre><code>- Rewrite of a push notification system in Go, Redis, MySQL
 - Creation of a cross promotion recommendation service in Go with MongoDB
@@ -422,9 +510,9 @@ func New() *Stack {
 - Maintenance on various Ruby and Go services like UA, push notifications, a/b testing, analytics proxy, using Redis, MongoDB, MySQL, Cassandra, RabbitMQ
 </code></pre>
 
-<h3 id="toc_7">Idea2 Ltd.</h3>
+<h3 id="idea2-ltd:c59a67a3c7bc5faa453847420267045e">Idea2 Ltd.</h3>
 
-<h4 id="toc_8">Lead Architect and Software Engineer</h4>
+<h4 id="lead-architect-and-software-engineer:c59a67a3c7bc5faa453847420267045e">Lead Architect and Software Engineer</h4>
 
 <p><strong>October 2008 - November 2012</strong> <em>Location:Earth:Chicago:New York</em><br />
 Design, implementation, and maintenance of the Idea2 multitenant platform for<br />
@@ -455,9 +543,9 @@ along with integration of other business services.</p>
   at Idea2 Ltd
 </code></pre>
 
-<h3 id="toc_9">Midway Games</h3>
+<h3 id="midway-games:c59a67a3c7bc5faa453847420267045e">Midway Games</h3>
 
-<h4 id="toc_10">Software Engineer</h4>
+<h4 id="software-engineer:c59a67a3c7bc5faa453847420267045e">Software Engineer</h4>
 
 <p><strong>August 2007 - October 2008</strong> <em>Location:Chicago, USA</em><br />
 Lead development for company wide asset management system utilizing<br />
@@ -474,9 +562,9 @@ a custom Unreal Engine 3 and various Linux based tools.</p>
   Paul at Midway Games
 </code></pre>
 
-<h3 id="toc_11">IP Pixel</h3>
+<h3 id="ip-pixel:c59a67a3c7bc5faa453847420267045e">IP Pixel</h3>
 
-<h4 id="toc_12">Software Engineer</h4>
+<h4 id="software-engineer-1:c59a67a3c7bc5faa453847420267045e">Software Engineer</h4>
 
 <p><strong>June 2006 - August 2007</strong> <em>Location:Chicago, USA</em><br />
 Development of large scale web based social network applications for<br />
@@ -493,9 +581,9 @@ large scale projects.</p>
   directly with Paul at Starcom Pixel
 </code></pre>
 
-<h2 id="toc_13">School</h2>
+<h2 id="school:c59a67a3c7bc5faa453847420267045e">School</h2>
 
-<h4 id="toc_14">University of Reading, UK</h4>
+<h4 id="university-of-reading-uk:c59a67a3c7bc5faa453847420267045e">University of Reading, UK</h4>
 
 <blockquote>
 <p><strong>MSc Cybernetics</strong> 2004-2006<br />
@@ -506,13 +594,13 @@ Ambisonic Microphones and Independent Component Analysis</p>
 <p>Using unsupervised learning algorithms, I created system that
 solved the coctail party problem.</p>
 
-<h4 id="toc_15">University of Illinois, Chicago</h4>
+<h4 id="university-of-illinois-chicago:c59a67a3c7bc5faa453847420267045e">University of Illinois, Chicago</h4>
 
 <blockquote>
 <p><strong>BSc Computer Science</strong> 2001-2004</p>
 </blockquote>
 
-<h2 id="toc_16">Random Paul facts</h2>
+<h2 id="random-paul-facts:c59a67a3c7bc5faa453847420267045e">Random Paul facts</h2>
 
 <ul>
 <li>I played in the now defuct music act called<br />
@@ -522,7 +610,7 @@ skills are unmatched, in our genre.</li>
 <li>Cats should not be household pets.<br /></li>
 </ul>
 
-<h2 id="toc_17">Things that lack coherent meaning (nonsense)</h2>
+<h2 id="things-that-lack-coherent-meaning-nonsense:c59a67a3c7bc5faa453847420267045e">Things that lack coherent meaning (nonsense)</h2>
 
 <ul>
 <li>I used to like muscle cars until I bought a 73 Mercury Cougar XR7<br />

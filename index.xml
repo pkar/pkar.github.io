@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Paul Karadimas</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Paul Karadimas</description>
+    <title>paul karadimas</title>
+    <link>https://pkar.github.io/</link>
+    <description>Recent content on paul karadimas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 23 Feb 2015 19:35:13 -0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pkar.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Mac OS X dnsmasq</title>
-      <link>http://localhost:1313/post/dnsmasq/</link>
+      <title>dnsmasq on mac os x</title>
+      <link>https://pkar.github.io/post/dnsmasq/</link>
       <pubDate>Mon, 23 Feb 2015 19:35:13 -0800</pubDate>
       
-      <guid>http://localhost:1313/post/dnsmasq/</guid>
+      <guid>https://pkar.github.io/post/dnsmasq/</guid>
       <description>
 
 &lt;p&gt;For a simple dev environment wildcard setup&lt;/p&gt;
@@ -90,10 +90,10 @@ round-trip min/avg/max/stddev = 12.879/12.879/12.879/0.000 ms
     
     <item>
       <title>runit</title>
-      <link>http://localhost:1313/post/runit/</link>
+      <link>https://pkar.github.io/post/runit/</link>
       <pubDate>Wed, 04 Feb 2015 05:15:58 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/runit/</guid>
+      <guid>https://pkar.github.io/post/runit/</guid>
       <description>&lt;p&gt;&lt;a href=&#34;https://github.com/pkar/runit&#34;&gt;runit&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;The main use case was to have something small and easy to use
@@ -147,10 +147,10 @@ foo
     
     <item>
       <title>pruxy</title>
-      <link>http://localhost:1313/post/pruxy/</link>
+      <link>https://pkar.github.io/post/pruxy/</link>
       <pubDate>Wed, 05 Nov 2014 00:21:23 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/pruxy/</guid>
+      <guid>https://pkar.github.io/post/pruxy/</guid>
       <description>&lt;p&gt;A simple reverse proxy that is configured through etcd.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/pkar/pruxy&#34;&gt;pruxy&lt;/a&gt;&lt;/p&gt;
@@ -167,10 +167,10 @@ docker run pkar/pruxy -port=6000 -dir=/prux -etcd=$LOCAL_IP:4001,$LOCAL_IP:4002,
     
     <item>
       <title>docker vagrant setup on Mac OS X</title>
-      <link>http://localhost:1313/post/dockervagrant/</link>
+      <link>https://pkar.github.io/post/dockervagrant/</link>
       <pubDate>Wed, 06 Aug 2014 20:08:03 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/dockervagrant/</guid>
+      <guid>https://pkar.github.io/post/dockervagrant/</guid>
       <description>&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
 The below is outdated, with docker 1.3 you can just get the official installer.
 &lt;/code&gt;&lt;/pre&gt;
@@ -249,10 +249,10 @@ docker run -it --rm dockerfile/python
     
     <item>
       <title>self updating go package</title>
-      <link>http://localhost:1313/post/refurbished/</link>
+      <link>https://pkar.github.io/post/refurbished/</link>
       <pubDate>Sun, 03 Aug 2014 00:44:38 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/refurbished/</guid>
+      <guid>https://pkar.github.io/post/refurbished/</guid>
       <description>&lt;p&gt;For whatever reason I thought it&amp;rsquo;d be great to have a go binary update itself. My usual
 method is to just use a &lt;a href=&#34;https://github.com/pkar/go-fabric&#34;&gt;fabric file&lt;/a&gt;. But that
 got boring so I made a refurbishing package instead. &lt;a href=&#34;https://github.com/pkar/refurbish&#34;&gt;refurbish&lt;/a&gt;
@@ -281,10 +281,10 @@ the binary has changed, and if so it replaces itself and reloads. Work in progre
     
     <item>
       <title>stack</title>
-      <link>http://localhost:1313/post/stack/</link>
+      <link>https://pkar.github.io/post/stack/</link>
       <pubDate>Sat, 02 Aug 2014 00:48:45 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/stack/</guid>
+      <guid>https://pkar.github.io/post/stack/</guid>
       <description>&lt;p&gt;I needed something simple to try out the formatting of this page.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;go&#34;&gt;
@@ -370,22 +370,22 @@ func New() *Stack {
     
     <item>
       <title>about</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://pkar.github.io/about/</link>
       <pubDate>Fri, 01 Aug 2014 00:43:17 +0000</pubDate>
       
-      <guid>http://localhost:1313/about/</guid>
-      <description>&lt;p&gt;Hi I&amp;rsquo;m Paul &lt;a href=&#34;http://localhost:1313/resume/&#34;&gt;resume&lt;/a&gt; | &lt;a href=&#34;https://github.com/pkar&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
+      <guid>https://pkar.github.io/about/</guid>
+      <description>&lt;p&gt;Hi &lt;a href=&#34;https://pkar.github.io/resume/&#34;&gt;resume&lt;/a&gt; | &lt;a href=&#34;https://github.com/pkar&#34;&gt;github&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/me.jpg&#34; alt=&#34;me&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://pkar.github.io/images/me.jpg&#34; alt=&#34;me&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>resume</title>
-      <link>http://localhost:1313/resume/</link>
+      <link>https://pkar.github.io/resume/</link>
       <pubDate>Wed, 01 Jan 1000 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/resume/</guid>
+      <guid>https://pkar.github.io/resume/</guid>
       <description>
 
 &lt;h1 id=&#34;paul-karadimas:c59a67a3c7bc5faa453847420267045e&#34;&gt;Paul Karadimas&lt;/h1&gt;
@@ -440,21 +440,22 @@ API. An implementation deployed to Heroku was also built.
 I also worked on a custom business process modeling engine in Python,
 along with integration of other business services.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;  Paul is one of the smartest developers I have ever worked with in my career.  
-  He has built an advanced application foundation and backend that has been   
-  rock-solid in terms of reliability and uptime. 
+&lt;pre&gt;&lt;code&gt;Paul is one of the smartest developers I have ever worked with in
+my career.  
+He has built an advanced application foundation and backend that has been   
+rock-solid in terms of reliability and uptime. 
 
-  He has a strong work-ethic and manages an extremely large project without  
-  any hand-holding or babysitting. Paul has had to work with minimal  
-  requirements in building and maintaining the Idea2 platform yet has never  
-  been slowed down by that fact; he has always managed to keep moving the  
-  development forward. He has been able to quickly adapt to new and emerging  
-  technology without flinching and has recently initiated Idea2&#39;s integration  
-  with mobile platforms.  
+He has a strong work-ethic and manages an extremely large project without  
+any hand-holding or babysitting. Paul has had to work with minimal  
+requirements in building and maintaining the Idea2 platform yet has never  
+been slowed down by that fact; he has always managed to keep moving the  
+development forward. He has been able to quickly adapt to new and emerging  
+technology without flinching and has recently initiated Idea2&#39;s integration  
+with mobile platforms.  
 
-  December 7, 2011
-  Patrick Ryan, Integration Engineer, Idea2 Ltd worked directly with Paul  
-  at Idea2 Ltd
+December 7, 2011
+Patrick Ryan, Integration Engineer, Idea2 Ltd worked directly with Paul  
+at Idea2 Ltd
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;midway-games:c59a67a3c7bc5faa453847420267045e&#34;&gt;Midway Games&lt;/h3&gt;
@@ -465,15 +466,15 @@ along with integration of other business services.&lt;/p&gt;
 Lead development for company wide asset management system utilizing&lt;br /&gt;
 a custom Unreal Engine 3 and various Linux based tools.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;  Paul is an exceptional programmer. His completion of our large scale   
-  project for Midway Games surpassed our expectations. Taking on a project   
-  that had no model for him to imitate, he created his own specifications  
-  and the end product was efficient, scalable and on time. I enjoyed working  
-  with Paul and wouldn&#39;t hesitate to work with him in the future.  
+&lt;pre&gt;&lt;code&gt;Paul is an exceptional programmer. His completion of our large scale   
+project for Midway Games surpassed our expectations. Taking on a project   
+that had no model for him to imitate, he created his own specifications  
+and the end product was efficient, scalable and on time. I enjoyed working  
+with Paul and wouldn&#39;t hesitate to work with him in the future.  
 
-  October 8, 2008
-  Lee Helmer, Producer/Project Manager, Midway Games managed 
-  Paul at Midway Games
+October 8, 2008
+Lee Helmer, Producer/Project Manager, Midway Games managed 
+Paul at Midway Games
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h3 id=&#34;ip-pixel:c59a67a3c7bc5faa453847420267045e&#34;&gt;IP Pixel&lt;/h3&gt;
@@ -486,13 +487,13 @@ companies such as ESPN, Miller, Petsmart. I designed and rewrote several&lt;br /
 of the platforms and designed the architecture for several&lt;br /&gt;
 large scale projects.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;  Paul is a designers dream. He sticks to a given layout and doesn&#39;t
-  skip corners. He is timely and reliable and uses his creativity to solve
-  any programmatic hurdle in his way.
-  
-  September 24, 2008
-  Justin Rath, Flash Developer / Flash Animator, Starcom Pixel worked 
-  directly with Paul at Starcom Pixel
+&lt;pre&gt;&lt;code&gt;Paul is a designers dream. He sticks to a given layout and doesn&#39;t
+skip corners. He is timely and reliable and uses his creativity to solve
+any programmatic hurdle in his way.
+
+September 24, 2008
+Justin Rath, Flash Developer / Flash Animator, Starcom Pixel worked 
+directly with Paul at Starcom Pixel
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2 id=&#34;school:c59a67a3c7bc5faa453847420267045e&#34;&gt;School&lt;/h2&gt;

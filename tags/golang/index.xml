@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Golang on Paul Karadimas</title>
-    <link>http://localhost:1313/tags/golang/</link>
-    <description>Recent content in Golang on Paul Karadimas</description>
+    <title>Golang on paul karadimas</title>
+    <link>https://pkar.github.io/tags/golang/</link>
+    <description>Recent content in Golang on paul karadimas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 03 Aug 2014 00:44:38 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/golang/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://pkar.github.io/tags/golang/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>self updating go package</title>
-      <link>http://localhost:1313/post/refurbished/</link>
+      <link>https://pkar.github.io/post/refurbished/</link>
       <pubDate>Sun, 03 Aug 2014 00:44:38 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/refurbished/</guid>
+      <guid>https://pkar.github.io/post/refurbished/</guid>
       <description>&lt;p&gt;For whatever reason I thought it&amp;rsquo;d be great to have a go binary update itself. My usual
 method is to just use a &lt;a href=&#34;https://github.com/pkar/go-fabric&#34;&gt;fabric file&lt;/a&gt;. But that
 got boring so I made a refurbishing package instead. &lt;a href=&#34;https://github.com/pkar/refurbish&#34;&gt;refurbish&lt;/a&gt;
@@ -43,10 +43,10 @@ the binary has changed, and if so it replaces itself and reloads. Work in progre
     
     <item>
       <title>stack</title>
-      <link>http://localhost:1313/post/stack/</link>
+      <link>https://pkar.github.io/post/stack/</link>
       <pubDate>Sat, 02 Aug 2014 00:48:45 +0000</pubDate>
       
-      <guid>http://localhost:1313/post/stack/</guid>
+      <guid>https://pkar.github.io/post/stack/</guid>
       <description>&lt;p&gt;I needed something simple to try out the formatting of this page.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;go&#34;&gt;

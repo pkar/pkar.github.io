@@ -6,8 +6,74 @@
     <description>Recent content on paul karadimas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Feb 2015 19:35:13 -0800</lastBuildDate>
+    <lastBuildDate>Sat, 13 Feb 2016 08:18:58 -0800</lastBuildDate>
     <atom:link href="https://pkar.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>log</title>
+      <link>https://pkar.github.io/post/log/</link>
+      <pubDate>Sat, 13 Feb 2016 08:18:58 -0800</pubDate>
+      
+      <guid>https://pkar.github.io/post/log/</guid>
+      <description>&lt;p&gt;logging lib usage&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;go&#34;&gt;
+package main
+
+import (
+    &#34;io&#34;
+    &#34;os&#34;
+
+    &#34;github.com/pkar/log&#34;
+)
+
+func main() {
+    logFile, err := os.OpenFile(&#34;log.log&#34;, os.O_CREATE|os.O_WRONLY|os.O_APPEND, 0666)
+    if err != nil {
+        log.Error.Fatalln(&#34;Failed to open log file&#34;, err)
+    }
+    log.SetFlags(log.Lshortfile)
+
+    // default outputs
+    log.Debug.Println(&#34;default debug&#34;)
+    log.Info.Println(&#34;default info&#34;)
+    log.Error.Printf(&#34;%s&#34;, &#34;default error&#34;)
+
+    // Create a default output setter optionally. The initial one uses
+    // ioutil.Discard, os.Stdout, os.Stderr
+    var newOuts = func() {
+        log.Debug.SetOutput(os.Stdout)
+        log.Info.SetOutput(io.MultiWriter(os.Stdout, logFile))
+        log.Error.SetOutput(os.Stderr)
+    }
+    log.SetOutputs(newOuts)
+    // Set the level dynamically
+    log.SetLevel(log.ErrorLevel)
+    log.Debug.Println(&#34;debug nope&#34;)
+    log.Info.Println(&#34;info nope&#34;)
+    log.Error.Println(&#34;error yes&#34;)
+
+    // Reset to debug and change flags
+    log.SetFlags(log.Llongfile)
+    log.SetLevel(log.DebugLevel)
+    log.Debug.Println(&#34;debug yes&#34;)
+    log.Info.Println(&#34;info yes&#34;)
+    log.Error.Fatal(&#34;fatal&#34;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&#34;bash&#34;&gt;
+$ go run example/main.go
+INFO: 2016/02/13 08:24:00 main.go:18: default info
+ERRO: 2016/02/13 08:24:00 main.go:19: default error
+ERRO: main.go:34: error yes
+DEBU: /Volumes/Data/dropbox/development/euler/src/github.com/pkar/log/example/main.go:39: debug yes
+INFO: /Volumes/Data/dropbox/development/euler/src/github.com/pkar/log/example/main.go:40: info yes
+ERRO: /Volumes/Data/dropbox/development/euler/src/github.com/pkar/log/example/main.go:41: fatal
+exit status 1
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>dnsmasq on mac os x</title>

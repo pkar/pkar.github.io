@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,74 +17,72 @@
         Hello<strong>!</strong> <a href="https://github.com/pkar" rel="nofollow noreferrer" target="_blank">github</a>
       </p>
       <div class="content">
+        <h2>Skills</h2>
+        <p>Go, Kubernetes, Nomad, Bazel, Terraform, AWS, Docker, Vault, Tailscale, PostgreSQL, Kafka, Prometheus, Grafana, Loki, Python, MySQL, Redis, C/C++, design and operation of large-scale systems</p>
+        <h2>Experience</h2>
         <div class="block">
-          <div><strong><a href="https://www.activestate.com" rel="nofollow noreferrer" target="_blank">ActiveState</a></strong> Senior Software Engineer >> September 2019 to present Remote</div>
-          <div>
-            <ul>
-              <li>Tools & Infrastructure team</li>
-              <li>Go, AWS, Kubernetes, Apache Mesos, Terraform, Vault, Bash, Apache Kafka, Postgres, Prometheus/Grafana, Bazel, CI/CD...</li>
-            </ul>
-          </div>
+          <div><strong><a href="https://www.activestate.com" rel="nofollow noreferrer" target="_blank">ActiveState</a></strong> Senior Site Reliability Engineer &mdash; September 2019 to October 2026 &mdash; Remote</div>
+          <ul>
+            <li>SRE for the ActiveState Platform, a hosted service that resolves, builds from source, signs, and distributes open source packages across 11 language ecosystems (Python, Perl, Java with Gradle and Ant, Ruby, Node, Rust, Go, R, Tcl, C/C++, .NET).</li>
+            <li>Operated infrastructure spanning Kubernetes (EKS, RKE2/Rancher) and HashiCorp Nomad build clusters on AWS, managed with Terraform and FluxCD GitOps.</li>
+            <li>Independently developed bazelbub, the hermetic build system written in Go and Bazel for all 11 language ecosystems. It code-generates Bazel workspaces from build plans and builds packages under full network isolation, with SLSA provenance attestation and Vault-based artifact signing.</li>
+            <li>Developed an agentic remediation service integrating LLM-based build failure diagnosis (Claude via API and AWS Bedrock) into the build pipeline for automated root-cause analysis.</li>
+            <li>Maintained a large Bazel monorepo: self-hosted remote execution and remote cache cluster on EKS, custom rules for Kubernetes, Helm, OCI images, and Vault, changed-target-only CI.</li>
+            <li>Nomad build cluster operations: batch job orchestration, custom autoscaling of build clients, cron jobs, Linux, Windows, and macOS build support.</li>
+            <li>Deploy pipeline: CircleCI with self-hosted runners driving an in-house deploy service that schedules Nomad jobs, ephemeral per-PR environments, and GitHub Actions runners that create air-gapped deployments of various platform stacks.</li>
+            <li>Secrets management with Vault (dynamic database credentials, agent injection) and AWS Secrets Manager via CSI driver with IRSA.</li>
+            <li>Observability stack: Prometheus, Alertmanager, Grafana, Loki, OpenSearch, Jaeger tracing.</li>
+            <li>Edge and service networking with Envoy Gateway, Gateway API, CloudFront, and PrivateLink on EKS.</li>
+          </ul>
         </div>
         <div class="block">
-          <div><strong><a href="https://www.upsight.com" rel="nofollow noreferrer" target="_blank">Upsight</a></strong> Software Server Engineer >> August 2014 to July 2019 Portland, OR/Remote</div>
-          <div>
-            <ul>
-              <li>Server side lead Go developer for the companies user lifecycle mananagement platform.</li>
-              <li>Lead the team to scale out Apple/Google/Web push notification service and accompanying microservices and data stack to handle hundreds of millions of pushes per day across all timezones.</li>
-              <li>Development of an SDK proxy to handle configuration management and GDPR for all device events on the marketing stack.</li>
-              <li>Development of a decentralized HTTP callback queueing system.</li>
-              <li>Development of a Syslog replacement daemon to handle metric data for later processing into the data stack via Apache Kafka.</li>
-              <li>Development of company wide continuous integration/deployment command line tool <a href="https://github.com/upsight/ron" rel="nofollow noreferrer" target="_blank">ron</a> for dev/staging/production by
-                putting all microservices in Docker and
-                deploying via TeamCity and SaltStack.</li>
-              <li>Integration across the marketing stack of Jaeger for distributed tracing, and a combination of Statsd, Opentsdb, and Grafana for application monitoring.</li>
-              <li>Data stack work in Java involving ingesting realtime device data using Apache Kudu, Kafka, Storm and Airflow, along with iOS and Google play receipt validation.</li>
-              <li>Development of a realtime daemon ETL for Ethereum and Ripple transactions into our data pipeline.</li>
-              <li>Variety of work on Python microservices</li>
-            </ul>
-          </div>
+          <div><strong><a href="https://www.upsight.com" rel="nofollow noreferrer" target="_blank">Upsight</a></strong> Software Engineer &mdash; August 2014 to September 2019 &mdash; Portland, OR</div>
+          <ul>
+            <li>Owned the server-side marketing stack, mainly using Go, Python, and MySQL.</li>
+            <li>Developed a build/continuous integration command-line tool in Go.</li>
+            <li>Wrote a syslog replacement for metric data in Go.</li>
+            <li>Built job scheduling workers in Go.</li>
+            <li>Built features and fixed bugs in various Python microservice APIs with MySQL and Memcached backends.</li>
+            <li>Rewrote and maintained the APNS/GCM push notification service in Go.</li>
+            <li>Developed an HTTP callback system using NSQ and Go.</li>
+            <li>Managed configuration with SaltStack.</li>
+            <li>Created a local development environment using Docker.</li>
+            <li>Built iOS and Google Play receipt verification in Java using Storm and Kafka.</li>
+            <li>Orchestrated continuous integration/deployment with SaltStack and TeamCity.</li>
+            <li>Wrote a command-line API tool in Go, auto-generated from JSON Hyper-Schema.</li>
+          </ul>
         </div>
         <div class="block">
-          <div><strong><a href="https://dena.com/intl/" rel="nofollow noreferrer" target="_blank">DeNa(ngmoco)</a></strong> Software Server Engineer >> December 2012 to August 2014 San Francisco, CA</div>
-          <div>
-            <ul>
-              <li>Server side lead developer in Go for the companies Mobage gaming platform.</li>
-              <li>Rewrite of a push notification system for the gaming platform from Ruby to Go, Redis, MySQL.</li>
-              <li>Maintenance on an Oauth proxy and various microservices written in Go and Ruby.</li>
-              <li>Creation of a social and interest graph following RDF, and a cross promotion recommendation service for an internal greenfield team project.</li>
-              <li>Creation of an internal platform team authorization service for ACL&rsquo;s using Go and MongoDB.</li>
-            </ul>
-          </div>
+          <div><strong><a href="https://dena.com/intl/" rel="nofollow noreferrer" target="_blank">DeNA (ngmoco)</a></strong> Software Engineer &mdash; December 2012 to August 2014 &mdash; San Francisco, CA</div>
+          <ul>
+            <li>Built and maintained server-side microservice components in Ruby and Go, backed by Redis, MongoDB, MySQL, Cassandra, and RabbitMQ.</li>
+            <li>Rewrote the APNS/GCM/C2DM push notification service from Ruby to Go.</li>
+            <li>Built a social and interest graph in Go following RDF.</li>
+            <li>Maintained server components for UA, push notifications, A/B testing, and an analytics proxy.</li>
+          </ul>
         </div>
         <div class="block">
-          <div><strong>Idea2</strong> Software Engineer >> October 2008 to November 2012 Chicago, IL USA/Remote</div>
-          <div>
-            <ul>
-              <li>Full stack Engineer utilizing Python, mysql, mongodb on AWS.</li>
-              <li>Design, implementation, and maintenance of the Idea2 multi-tenant platform for business automation, web and mobile based application versions.</li>
-              <li>Custom business process modeling engine in Python, along with integration of other business services.</li>
-            </ul>
-          </div>
+          <div><strong>Idea2</strong> Software Engineer &mdash; October 2008 to November 2012 &mdash; Remote</div>
+          <ul>
+            <li>Designed, implemented, and maintained the Idea2 multi-tenant platform for business automation.</li>
+            <li>Worked across the full stack with PHP, Python, MySQL, and MongoDB on AWS.</li>
+          </ul>
         </div>
         <div class="block">
-          <div><strong>Midway Games</strong> Software Engineer >> August 2007 to October 2008 Chicago, IL USA</div>
-          <div>
-            <ul>
-              <li>Lead development for company wide asset management system utilizing a custom Unreal Engine 3.</li>
-            </ul>
-          </div>
+          <div><strong>Midway Games</strong> Software Engineer &mdash; August 2007 to October 2008 &mdash; Chicago, IL</div>
+          <ul>
+            <li>Led development of a company-wide asset management system built on a custom Unreal Engine 3 and various Linux-based tools.</li>
+          </ul>
         </div>
         <div class="block">
-          <div><strong>IP Pixel</strong> Software Engineer >> June 2006 to August 2007 Chicago, IL</div>
-          <div>
-            <ul>
-              <li>Development of web based social network applications for companies such as ESPN, Miller, Petsmart.</li>
-            </ul>
-          </div>
+          <div><strong>IP Pixel</strong> Software Engineer &mdash; June 2006 to August 2007 &mdash; Chicago, IL</div>
+          <ul>
+            <li>Developed web-based social network applications for companies such as ESPN, Miller, and PetSmart.</li>
+          </ul>
         </div>
+        <h2>Education</h2>
         <div class="block">
-          <div><strong>University of Reading, MSc Cybernetics </strong> >> 2005-2006 Reading, UK</div>
+          <div><strong>University of Reading, MSc Cybernetics </strong> &mdash; 2005–2006 Reading, UK</div>
           <div>
             <ul>
               <li>A Convoluted System: Multichannel Blind Source Separation of Audio using Ambisonic Microphones and Independent Component Analysis</li>
@@ -93,11 +91,7 @@
           </div>
         </div>
         <div class="block">
-          <div><strong>University of Illinois, Chicago, BSc Computer Science</strong> > 2001-2004 Chicago, IL</div>
-          <div>
-            <ul>
-            </ul>
-          </div>
+          <div><strong>University of Illinois Chicago, BSc Computer Science</strong> &mdash; 2001–2004 Chicago, IL</div>
         </div>
       </div>
     </div>

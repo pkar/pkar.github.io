@@ -23,16 +23,17 @@
         <div class="block">
           <div><strong><a href="https://www.activestate.com" rel="nofollow noreferrer" target="_blank">ActiveState</a></strong> Senior Site Reliability Engineer &mdash; September 2019 to October 2026 &mdash; Remote</div>
           <ul>
-            <li>SRE for the ActiveState Platform, a hosted service that resolves, builds from source, signs, and distributes open source packages across 11 language ecosystems (Python, Perl, Java with Gradle and Ant, Ruby, Node, Rust, Go, R, Tcl, C/C++, .NET).</li>
-            <li>Operated infrastructure spanning Kubernetes (EKS, RKE2/Rancher) and HashiCorp Nomad build clusters on AWS, managed with Terraform and FluxCD GitOps.</li>
-            <li>Independently developed bazelbub, the hermetic build system written in Go and Bazel for all 11 language ecosystems. It code-generates Bazel workspaces from build plans and builds packages under full network isolation, with SLSA provenance attestation and Vault-based artifact signing.</li>
-            <li>Developed an agentic remediation service integrating LLM-based build failure diagnosis (Claude via API and AWS Bedrock) into the build pipeline for automated root-cause analysis.</li>
+            <li>SRE for the ActiveState Platform, a hosted service that resolves, builds from source, signs, and distributes open source packages across 11 language ecosystems (Python, Perl, Java with Gradle and Ant, Ruby, Node, Rust, Go, R, Tcl, C/C++, .NET). Senior lead engineer and technical lead (no management title) on a 3-10 person infrastructure team.</li>
+            <li>Ran Kubernetes and Nomad build clusters on AWS with Terraform and FluxCD GitOps, moving development from RKE1 to RKE2 to EKS and production from RKE1 to RKE2 and partly to EKS. Nomad ran Linux, Windows, and macOS batch builds with custom autoscaling.</li>
+            <li>Replaced a Mesos system, deprecated for about five years and a SOC 2 risk, with Nomad: proposed it for years, won over a skeptical CTO with working demos, then did the whole migration across every team, about six months from proposal to full adoption.</li>
+            <li>Owned SOC 2 infrastructure: per-environment AWS accounts (migrated the development clusters), AWS SSO instead of long-lived user access keys, CVE remediation for registry images and in-cluster apps under a one-week policy, and automated Go fixes from Dependabot alerts.</li>
+            <li>Independently developed bazelbub, a hermetic Go and Bazel build system for all 11 ecosystems. It generates Bazel workspaces from build plans and builds under full network isolation, with SLSA provenance attestation and Vault-based artifact signing. Led its rollout across engineering.</li>
+            <li>Built an agentic remediation service that resolves dependencies into per-ecosystem lockfiles, builds from source with attestation, and notifies downstream systems. On failure, Anthropic models on AWS Bedrock (via Tailscale Aperture) diagnose the cause, adjust the lockfile or build flags, and resubmit or escalate to a person. It can't bypass attestation checks or QA.</li>
             <li>Maintained a large Bazel monorepo: self-hosted remote execution and remote cache cluster on EKS, custom rules for Kubernetes, Helm, OCI images, and Vault, changed-target-only CI.</li>
-            <li>Nomad build cluster operations: batch job orchestration, custom autoscaling of build clients, cron jobs, Linux, Windows, and macOS build support.</li>
             <li>Deploy pipeline: CircleCI with self-hosted runners driving an in-house deploy service that schedules Nomad jobs, ephemeral per-PR environments, and GitHub Actions runners that create air-gapped deployments of various platform stacks.</li>
-            <li>Secrets management with Vault (dynamic database credentials, agent injection) and AWS Secrets Manager via CSI driver with IRSA.</li>
-            <li>Observability stack: Prometheus, Alertmanager, Grafana, Loki, OpenSearch, Jaeger tracing.</li>
-            <li>Edge and service networking with Envoy Gateway, Gateway API, CloudFront, and PrivateLink on EKS.</li>
+            <li>Moved workload secrets from Vault to AWS Secrets Manager (CSI driver, IRSA), each pod reading only its own; Vault Transit still signs artifacts and Vault still issues database credentials for legacy apps.</li>
+            <li>Moved foundational images from in-cluster Harbor to ECR after a volume stuck during a node rolling restart caused about 30 minutes of partial outage, so cluster rollouts can't take down the registry.</li>
+            <li>Observability with Prometheus, Alertmanager, Grafana, Loki, OpenSearch, and Jaeger; networking with Envoy Gateway, Gateway API, CloudFront, and PrivateLink on EKS.</li>
           </ul>
         </div>
         <div class="block">
